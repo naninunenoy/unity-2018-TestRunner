@@ -4,7 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Tests {
+namespace MyPlugin.Tests {
     public class MyClassTest {
         MyClass myClass;
 
