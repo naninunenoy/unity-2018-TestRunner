@@ -1,7 +1,7 @@
 {
-    "name": "EditMode",
+    "name": "MyPlugin.EditModeTest",
     "references": [
-        "MyProjectAssembly"
+        "MyPlugin"
     ],
     "optionalUnityReferences": [
         "TestAssemblies"

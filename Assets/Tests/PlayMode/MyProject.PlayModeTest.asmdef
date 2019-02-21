@@ -1,5 +1,5 @@
 {
-    "name": "PlayMode",
+    "name": "MyProject.PlayModeTest",
     "references": [
         "MyProjectAssembly"
     ],
