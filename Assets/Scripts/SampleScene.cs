@@ -2,18 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SampleScene : MonoBehaviour {
-    public GameObject cube;
-    void Start() {
+namespace MyProject {
+    public class SampleScene : MonoBehaviour {
+        [SerializeField] SceneObject obj = default;
 
-    }
+        private MyPlugin.ITranslationNotifier translationNotifier;
 
-    void Update() {
-        if (cube != null) {
-            var p = cube.transform.position;
-            cube.transform.position = new Vector3(p.x + 0.1F, p.y, p.z);
-            if (p.x > 0F) {
-                Destroy(cube);
+        void Start() {
+            translationNotifier = gameObject.AddComponent<MyPlugin.UnityKeyDownTranslationNotifier>();
+            translationNotifier.OnTranslation += OnReceiveTransition;
+            translationNotifier?.StartSession();
+        }
+
+        void OnDestroy() {
+            translationNotifier.OnTranslation -= OnReceiveTransition;
+            translationNotifier?.StopSession();
+        }
+
+        void OnReceiveTransition(MyPlugin.TranslationType translation) {
+            switch (translation) {
+            case MyPlugin.TranslationType.Right:
+                obj?.ToRight();
+                break;
+            case MyPlugin.TranslationType.Left:
+                obj?.ToLeft();
+                break;
+            case MyPlugin.TranslationType.Up:
+                obj?.ToUp();
+                break;
+            case MyPlugin.TranslationType.Down:
+                obj?.ToDown();
+                break;
+            default:
+                // Do Nothing
+                break;
             }
         }
     }

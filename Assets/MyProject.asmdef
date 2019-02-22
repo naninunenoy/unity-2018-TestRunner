@@ -1,6 +1,8 @@
 {
     "name": "MyProject",
-    "references": [],
+    "references": [
+        "MyPlugin"
+    ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
