@@ -13,8 +13,11 @@ namespace MyProject {
 
         private MyPlugin.ITranslationNotifier translationNotifier;
 
-        void Start() {
+        void Awake() {
             translationNotifier = gameObject.AddComponent<MyPlugin.UnityKeyDownTranslationNotifier>();
+        }
+
+        void Start() {
             if (translationNotifier != null) {
                 translationNotifier.OnTranslation += OnReceiveTransition;
                 translationNotifier.StartSession();
@@ -26,6 +29,16 @@ namespace MyProject {
                 translationNotifier.OnTranslation -= OnReceiveTransition;
                 translationNotifier.StopSession();
             }
+        }
+
+        public void SetTranslationNotifierAndStartSession(MyPlugin.ITranslationNotifier translationNotifier) {
+            if (this.translationNotifier != null) {
+                this.translationNotifier.OnTranslation -= OnReceiveTransition;
+                this.translationNotifier.StopSession();
+            }
+            this.translationNotifier = translationNotifier;
+            this.translationNotifier.OnTranslation += OnReceiveTransition;
+            this.translationNotifier.StartSession();
         }
 
         void OnReceiveTransition(MyPlugin.TranslationType translation) {

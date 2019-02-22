@@ -1,7 +1,8 @@
 {
     "name": "MyProject.PlayModeTest",
     "references": [
-        "MyProject"
+        "MyProject",
+        "MyPlugin"
     ],
     "optionalUnityReferences": [
         "TestAssemblies"
