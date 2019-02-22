@@ -7,7 +7,7 @@ using UnityEngine.TestTools;
 namespace MyPlugin.Tests {
     public class MyPluginTest {
         [Test]
-        public void TranslationTypeのテスト() {
+        public void TranslationTypeTest() {
             Assert.AreEqual(Vector3.right, TranslationType.Right.ToUnitVector());
             Assert.AreEqual(Vector3.left, TranslationType.Left.ToUnitVector());
             Assert.AreEqual(Vector3.up, TranslationType.Up.ToUnitVector());
@@ -16,7 +16,7 @@ namespace MyPlugin.Tests {
         }
 
         [Test] 
-        public void UnityKeyDownTranslationNotifierのテスト() {
+        public void UnityKeyDownTranslationNotifierTest() {
             var obj = new GameObject("").AddComponent<UnityKeyDownTranslationNotifier>();
             Assert.False(obj.IsSessionRunning);
             obj.StartSession();
