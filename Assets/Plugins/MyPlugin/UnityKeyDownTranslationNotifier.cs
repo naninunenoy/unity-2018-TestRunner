@@ -8,6 +8,7 @@ namespace MyPlugin {
         public event Action<TranslationType> OnTranslation = delegate { };
 
         private bool hasSession = false;
+        public bool IsSessionRunning { get => hasSession; }
 
         void Update() {
             if (!hasSession) {
