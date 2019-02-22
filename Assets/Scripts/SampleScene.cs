@@ -45,7 +45,7 @@ namespace MyProject {
         }
     }
 
-    static class TranslationTypeEx {
+    public static class TranslationTypeEx {
         private static bool IsVirticalMove(this MyPlugin.TranslationType type) {
             return type == MyPlugin.TranslationType.Up || type == MyPlugin.TranslationType.Down;
         }
